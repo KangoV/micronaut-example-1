@@ -19,7 +19,7 @@ import io.swagger.v3.oas.annotations.info.License;
         name = "Apache 2.0",
         url = "https://www.apache.org/licenses/LICENSE-2.0"),
     contact = @Contact(
-        url = "https://github.com/KangoV/micronaut-test",
+        url = "https://github.com/KangoV/micronaut-example-1",
         name = "darren",
         email = "djb.bell@gmail.com")))
 public class Application {

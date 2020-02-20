@@ -23,7 +23,7 @@ scmVersion {
 }
 
 project.version = scmVersion.version
-group "com.raytheon.tr.mn"
+group "org.belldj"
 
 sourceCompatibility = '13'
 targetCompatibility = '13'
@@ -96,7 +96,7 @@ dependencies {
 
 test.classpath += configurations.developmentOnly
 
-mainClassName = "com.raytheon.tr.mn.ex1.Application"
+mainClassName = "org.belldj.mntest.Application"
 
 // use JUnit 5 platform
 test { 

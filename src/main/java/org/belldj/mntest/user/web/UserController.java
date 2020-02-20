@@ -19,7 +19,7 @@ import io.micronaut.validation.Validated;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Controller(value = "/users", produces = MediaType.APPLICATION_JSON)
-@Tag(name = "parts")
+@Tag(name = "users")
 @Validated
 public class UserController {
 

@@ -17,8 +17,8 @@ import io.micronaut.http.annotation.Post;
 import io.micronaut.validation.Validated;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@Controller(value = "/parts", produces = MediaType.APPLICATION_JSON)
-@Tag(name = "parts")
+@Controller(value = "/candidates", produces = MediaType.APPLICATION_JSON)
+@Tag(name = "candidates")
 @Validated
 public class CandidateController {
 
