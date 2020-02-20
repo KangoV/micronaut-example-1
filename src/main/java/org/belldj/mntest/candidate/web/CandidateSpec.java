@@ -15,7 +15,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @JsonSerialize(as = CandidateT.class)
 @JsonDeserialize(as = CandidateT.class)
 @JsonInclude(Include.NON_NULL)
-@Schema(name = "RegisteredBuild", description = "The registered Build")
+@Schema(name = "Candidate", description = "The Candidate")
 public interface CandidateSpec {
 
   UUID getId();

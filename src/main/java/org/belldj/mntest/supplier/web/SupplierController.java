@@ -35,23 +35,12 @@ public class SupplierController {
     this.service = service;
   }
 
-  /**
-   * Registers a new build
-   *
-   * @param build The build to register
-   * @return The build that was saved
-   */
   @Post(uri = "/")
   public HttpResponse<SupplierT> add(@Body @NotNull final SupplierAddCommandT command) {
     Supplier part = service.add(command);
     return HttpResponse.created(mapper.map(part));
   }
 
-  /**
-   * Returns all registered builds
-   *
-   * @return all registered builds
-   */
   @Get(uri = "/")
   public HttpResponse<List<SupplierT>> all() {
     List<SupplierT> result = service.findAll().stream().map(mapper::map).collect(Collectors.toList());

@@ -12,13 +12,13 @@ import io.micronaut.context.event.ApplicationEventPublisher;
 public class SupplierService implements SupplierApi {
 
   @Mapper
-  public interface PartServiceMappers {
+  public interface SupplierServiceMappers {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdDate", ignore = true)
     Supplier map(SupplierAddCommand command);
   }
-
-  public static final PartServiceMappers mapper = Mappers.getMapper(PartServiceMappers.class);
+ 
+  public static final SupplierServiceMappers mapper = Mappers.getMapper(SupplierServiceMappers.class);
   private final SupplierRespository repository;
   private ApplicationEventPublisher publisher;
 

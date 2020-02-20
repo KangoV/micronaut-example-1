@@ -11,6 +11,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Value.Immutable
 @JsonSerialize(as = SupplierAddCommandT.class)
 @JsonDeserialize(as = SupplierAddCommandT.class)
-@Schema(name = "AddPartCommand", description = "The part to be added")
+@Schema(name = "AddSupplierCommand", description = "The Supplier to be added")
 public interface SupplierAddCommandSpec extends SupplierApi.SupplierAddCommand {
 }

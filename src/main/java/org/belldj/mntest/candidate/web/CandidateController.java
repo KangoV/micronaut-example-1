@@ -35,23 +35,12 @@ public class CandidateController {
     this.service = service;
   }
 
-  /**
-   * Registers a new build
-   *
-   * @param build The build to register
-   * @return The build that was saved
-   */
   @Post(uri = "/")
   public HttpResponse<CandidateT> add(@Body @NotNull final CandidateAddCommandT command) {
-    Candidate part = service.add(command);
-    return HttpResponse.created(mapper.map(part));
+    Candidate candidate = service.add(command);
+    return HttpResponse.created(mapper.map(candidate));
   }
 
-  /**
-   * Returns all registered builds
-   *
-   * @return all registered builds
-   */
   @Get(uri = "/")
   public HttpResponse<List<CandidateT>> all() {
     List<CandidateT> result = service.findAll().stream().map(mapper::map).collect(Collectors.toList());

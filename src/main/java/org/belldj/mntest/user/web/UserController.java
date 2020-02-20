@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.constraints.NotNull;
 import org.belldj.mntest.candidate.domain.Candidate;
-import org.belldj.mntest.candidate.domain.CandidateService;
+import org.belldj.mntest.user.domain.User;
+import org.belldj.mntest.user.domain.UserService;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.NullValueMappingStrategy;
 import org.mapstruct.factory.Mappers;
 import io.micronaut.http.HttpResponse;
@@ -24,35 +24,24 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class UserController {
 
   @Mapper(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
-  public interface PartControllerMapper {
-    UserT map(Candidate part);
+  public interface UserControllerMapper {
+    UserT map(User part);
   }
 
-  public static final PartControllerMapper mapper = Mappers.getMapper(PartControllerMapper.class);
+  public static final UserControllerMapper mapper = Mappers.getMapper(UserControllerMapper.class);
+ 
+  private UserService service;
 
-  private CandidateService service;
-
-  public UserController(CandidateService service) {
+  public UserController(UserService service) {
     this.service = service;
   }
-
-  /**
-   * Registers a new build
-   *
-   * @param build The build to register
-   * @return The build that was saved
-   */
+ 
   @Post(uri = "/")
   public HttpResponse<UserT> add(@Body @NotNull final UserAddCommandT command) {
-    Candidate part = service.add(command);
+    User part = service.add(command);
     return HttpResponse.created(mapper.map(part));
   }
 
-  /**
-   * Returns all registered builds
-   *
-   * @return all registered builds
-   */
   @Get(uri = "/")
   public HttpResponse<List<UserT>> all() {
     List<UserT> result = service.findAll().stream().map(mapper::map).collect(Collectors.toList());

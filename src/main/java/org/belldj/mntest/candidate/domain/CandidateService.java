@@ -10,16 +10,15 @@ import io.micronaut.context.event.ApplicationEventPublisher;
 
 @Singleton
 public class CandidateService implements CandidateApi {
-
+ 
   @Mapper
-  public interface PartServiceMappers {
+  public interface CandidateServiceMappers {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdDate", ignore = true)
-    @Mapping(target = "category", source = "type.category")
     Candidate map(PartAddCommand command);
   }
 
-  public static final PartServiceMappers mapper = Mappers.getMapper(PartServiceMappers.class);
+  public static final CandidateServiceMappers mapper = Mappers.getMapper(CandidateServiceMappers.class);
   private final CandidateRespository repository;
   private ApplicationEventPublisher publisher;
 

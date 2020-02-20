@@ -20,7 +20,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @JsonSerialize(as = UserT.class)
 @JsonDeserialize(as = UserT.class)
 @JsonInclude(Include.NON_NULL)
-@Schema(name = "RegisteredBuild", description = "The registered Build")
+@Schema(name = "User", description = "The user")
 public interface UserSpec {
 
   UUID getId();

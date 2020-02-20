@@ -12,13 +12,13 @@ import io.micronaut.context.event.ApplicationEventPublisher;
 public class UserService implements UserApi {
 
   @Mapper
-  public interface PartServiceMappers {
+  public interface UserServiceMappers {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdDate", ignore = true)
-    User map(UserAddCommand command);
+    User map(UserAddCommand command); 
   }
 
-  public static final PartServiceMappers mapper = Mappers.getMapper(PartServiceMappers.class);
+  public static final UserServiceMappers mapper = Mappers.getMapper(UserServiceMappers.class);
   private final UserRespository repository;
   private ApplicationEventPublisher publisher;
 
