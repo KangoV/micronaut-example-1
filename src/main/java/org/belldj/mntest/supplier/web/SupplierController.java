@@ -18,16 +18,16 @@ import io.micronaut.validation.Validated;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Controller(value = "/suppliers", produces = MediaType.APPLICATION_JSON)
-@Tag(name = "parts")
+@Tag(name = "suppliers")
 @Validated
 public class SupplierController {
 
   @Mapper(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
-  public interface PartControllerMapper {
+  public interface SupplierControllerMapper { 
     SupplierT map(Supplier part);
   }
 
-  public static final PartControllerMapper mapper = Mappers.getMapper(PartControllerMapper.class);
+  public static final SupplierControllerMapper mapper = Mappers.getMapper(SupplierControllerMapper.class);
 
   private SupplierService service;
 

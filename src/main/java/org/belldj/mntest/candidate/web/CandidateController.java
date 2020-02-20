@@ -23,11 +23,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class CandidateController {
 
   @Mapper(nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
-  public interface PartControllerMapper {
+  public interface CandidateControllerMapper { 
     CandidateT map(Candidate part);
   }
 
-  public static final PartControllerMapper mapper = Mappers.getMapper(PartControllerMapper.class);
+  public static final CandidateControllerMapper mapper = Mappers.getMapper(CandidateControllerMapper.class);
 
   private CandidateService service;
 

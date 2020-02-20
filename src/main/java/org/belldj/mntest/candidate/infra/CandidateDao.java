@@ -10,7 +10,7 @@ import io.micronaut.data.repository.CrudRepository;
 public interface CandidateDao extends CrudRepository<CandidateE, UUID> {
 
   @Override
-  @Query(value = "from PartE as part")
+  @Query(value = "from CandidateE as part")
   List<CandidateE> findAll(); // empty
 
 }
