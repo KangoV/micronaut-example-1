@@ -1,0 +1,20 @@
+version: "3"
+services:
+  app:
+    build: ./
+    image: mntest:1.0
+    environment:
+    - DB_URL=jdbc:postgresql://db/test
+    ports: 
+    - "8081:8081"
+    depends_on:
+    - "db"
+  db:
+    image: "postgres:10-alpine"
+    container_name: "my_postgres"
+    environment:
+      - POSTGRES_DB=test
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=
+    ports:
+      - "5432:5432"
